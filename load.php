@@ -1,10 +1,15 @@
 <?php
 
+define("SQL_SERVER", "127.0.0.1");
+define("SQL_DATABASE", "lolbin");
+define("SQL_USERNAME", "<username>");
+define("SQL_PASSWORD", "<password>");
+
 if (!$_GET["delete"]) {
 	$paste = "";
 
 	try {
-		$conn = new PDO("mysql:host=127.0.0.1;dbname=lolbin", "<username>", "<password>");
+		$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
 		$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare("SELECT * FROM pastes WHERE id = :id");
@@ -24,7 +29,7 @@ if (!$_GET["delete"]) {
 	}
 } else {
 	try {
-		$conn = new PDO("mysql:host=127.0.0.1;dbname=lolbin", "<username>", "<password>");
+		$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
 		$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare("SELECT * FROM pastes WHERE id = :id AND user_token = :token");
@@ -37,7 +42,7 @@ if (!$_GET["delete"]) {
 			die();
 		}
 
-		$conn = new PDO("mysql:host=127.0.0.1;dbname=lolbin", "<username>", "<password>");
+		$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
 		$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare("DELETE FROM pastes WHERE id = :id AND user_token = :token");
