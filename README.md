@@ -5,13 +5,7 @@ THE BEST AND THE FASTEST PASTEBIN EVER! LOL!!!!!!!
 
 Aside from joking, LOLBIN is one of the fastest pastebins ever, it's configured to do every single sort of optimization to maximize the performance of the pastebin, achiving the maximum possible load times a website can ever do.
 
-Here's a sample result as the website tested on Pingdom:
-
-![Sample test](http://i.imgur.com/sBCF3sO.png)
-
-As you can see, the performance score is 100 as rated by Google, and below, you can see all sorts of optimizations being done
-
-> Note that the high load time is due to a very terrible server the pastebin was hosted on during the test, a better server would achieve around `~250ms` load time
+The performance score is 100 as rated by Google's PageSpeed, all sorts of optimizations are done
 
 # Installation:
 
