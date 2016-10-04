@@ -6,7 +6,7 @@ THE BEST AND THE FASTEST PASTEBIN EVER! LOL!!!!!!!
 
 Aside from joking, LOLBIN is one of the fastest pastebins ever, it's configured to do every single sort of optimization to maximize the performance of the pastebin, achiving the maximum possible load times a website can ever do.
 
-The performance score is 100 as rated by Google's PageSpeed, all sorts of optimizations are done
+The performance score is 100 as rated by Google's PageSpeed, all sorts of optimizations are done. A typical server response time should be around **125ms**
 
 # Installation:
 
@@ -70,3 +70,8 @@ sudo a2enmod <mod_name>
 ### The website is slow and/or not working
 
 This is probably `.htaccess` file not taking effect, in your server's configuration file, you should change `AllowOverride` statements to activate `.htaccess`, you can Google that to get to know how you can allow overrides.
+
+# List of trusted LOLBINs (All of them are over HTTPS)
+
+ - [Sigint](https://lolbin.sigint.pw/)
+ - [Nolsen](https://lolbin.nolsen.xyz/)
