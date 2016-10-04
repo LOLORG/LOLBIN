@@ -12,7 +12,7 @@ The performance score is 100 as rated by Google's PageSpeed, all sorts of optimi
 
 LOLBIN is built on the LAMP stack, and it pretty much requires it. Notable things your server should absolutely have is MySQL and PHP support
 
-If you use any other server than Apache, the please use the equivalent rules defined in `.htaccess`, or the performance will siginificantly go down and the website might not even load in the first place.
+Make sure to have `.htaccess` (Apache) or `nginx.conf` (Nginx) active, or the performance will degrade the LOLBIN won't work.
 
 Installing LOLBIN has never been easier.
 
@@ -31,7 +31,7 @@ This creates a DB called `lolbin` and creates a `pastes` table.
 
 ## Step 2
 
-Now to actually install the website, go to your webserver's root folder (Usually `/var/www/html/` or Ubuntu or just `/var/www/` on Debian) and and execute:
+Now to actually install the website, go to your webserver's root folder and execute:
 
 ```
 git clone https://github.com/MicroDroid/LOLBIN
@@ -50,7 +50,7 @@ This is the last step, you just need to configure the website, go through `index
 
 ### 500 Internal server error
 
-You might get some `500 Internal Server Error` pages, this is probably due to some modules not being loaded in Apache, make sure to have the following mods loaded:
+You might get some `500 Internal Server Error` pages, this is probably due to some modules not being loaded if you use Apache, make sure to have the following mods loaded:
 
 ```
 headers
@@ -67,9 +67,11 @@ sudo a2enmod <mod_name>
  For Windows, find your configuration file and uncomment lines starting with `LoadMod` that are relevant the mods listed above
 
 
+I haven't used nginx, so experiment with that on your own
+
 ### The website is slow and/or not working
 
-This is probably `.htaccess` file not taking effect, in your server's configuration file, you should change `AllowOverride` statements to activate `.htaccess`, you can Google that to get to know how you can allow overrides.
+Make sure `.htaccess` (Apache) or `nginx.conf` (Nginx) is active.
 
 # List of trusted LOLBINs (All of them are over HTTPS)
 
