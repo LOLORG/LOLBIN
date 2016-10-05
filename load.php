@@ -2,8 +2,8 @@
 
 define("SQL_SERVER", "127.0.0.1");
 define("SQL_DATABASE", "lolbin");
-define("SQL_USERNAME", "root");
-define("SQL_PASSWORD", "ZingoRingo00");
+define("SQL_USERNAME", "<username>");
+define("SQL_PASSWORD", "<password>");
 
 if (!$_GET["delete"]) {
 	$paste = "";
@@ -18,13 +18,13 @@ if (!$_GET["delete"]) {
 
 		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		if (count($results) < 1) {
-			echo "no";
+			echo "#rekt";
 			die();
 		} else {
 			$paste = $results[0]["content"];
 		}
 	} catch (PDOException $e) {
-		echo '500!!!! WAAAAT!!!!!';
+		echo '500. wth .-.';
 		die();
 	}
 } else {
@@ -38,7 +38,7 @@ if (!$_GET["delete"]) {
 		$stmt->execute();
 		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		if (count($results) < 1) {
-			echo "no";
+			echo "#rekt";
 			die();
 		}
 
@@ -49,16 +49,16 @@ if (!$_GET["delete"]) {
 		$stmt->bindParam(":id", $_GET["id"]);
 		$stmt->bindParam(":token", $_COOKIE["token"]);
 		$stmt->execute();
-		echo "k";
+		echo "no, sry";
 		die();
 	} catch (PDOException $e) {
-		echo '500!!!! WAAAAT!!!!!';
+		echo '500. wth .-.';
 		die();
 	}
 }
 
 ?>
-<!DOCTYPE html><html manifest="load.appcache"><head><meta charset=UTF-8><meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1"/><meta name=language content=EN><meta name=keywords content="code, codebase, snippet, snippets, codebottle, paste, pastebin, function, class, search"><title>LOLBIN</title><style>body{padding:8px;color:white;background:#222;text-align:right;font-family:Consolas,monospace}h1{font-size:5em}#del-btn{padding:8px 12px;background:#c50000;font-weight:900;border:0;border-radius:4px;color:white}pre code{border:1px solid gray;padding:16px !important;}#container{text-align:left}.hljs{display:block;overflow-x:auto;padding:.5em;background:#23241f}.hljs,.hljs-tag,.hljs-subst{color:#f8f8f2}.hljs-strong,.hljs-emphasis{color:#a8a8a2}.hljs-bullet,.hljs-quote,.hljs-number,.hljs-regexp,.hljs-literal,.hljs-link{color:#ae81ff}.hljs-code,.hljs-title,.hljs-section,.hljs-selector-class{color:#a6e22e}.hljs-strong{font-weight:bold}.hljs-emphasis{font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-name,.hljs-attr{color:#f92672}.hljs-symbol,.hljs-attribute{color:#66d9ef}.hljs-params,.hljs-class .hljs-title{color:#f8f8f2}.hljs-string,.hljs-type,.hljs-built_in,.hljs-builtin-name,.hljs-selector-id,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-addition,.hljs-variable,.hljs-template-variable{color:#e6db74}.hljs-comment,.hljs-deletion,.hljs-meta{color:#75715e}</style><script>
+<!DOCTYPE html><html manifest="load.appcache"><head><meta charset=UTF-8><meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1"/><meta name=language content=EN><meta name=keywords content="code, codebase, snippet, snippets, codebottle, paste, pastebin, function, class, search"><title>LOLBIN</title><style>body{padding:8px;color:white;background:#222;text-align:right;font-family:Consolas,monospace}h1{font-size:5em}#rm-btn{padding:8px 12px;background:#c50000;font-weight:900;border:0;border-radius:4px;color:white}pre code{border:1px solid gray;padding:16px !important;}#container{text-align:left}.hljs{display:block;overflow-x:auto;padding:.5em;background:#23241f}.hljs,.hljs-tag,.hljs-subst{color:#f8f8f2}.hljs-strong,.hljs-emphasis{color:#a8a8a2}.hljs-bullet,.hljs-quote,.hljs-number,.hljs-regexp,.hljs-literal,.hljs-link{color:#ae81ff}.hljs-code,.hljs-title,.hljs-section,.hljs-selector-class{color:#a6e22e}.hljs-strong{font-weight:bold}.hljs-emphasis{font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-name,.hljs-attr{color:#f92672}.hljs-symbol,.hljs-attribute{color:#66d9ef}.hljs-params,.hljs-class .hljs-title{color:#f8f8f2}.hljs-string,.hljs-type,.hljs-built_in,.hljs-builtin-name,.hljs-selector-id,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-addition,.hljs-variable,.hljs-template-variable{color:#e6db74}.hljs-comment,.hljs-deletion,.hljs-meta{color:#75715e}</style><script>
 (function(factory) {
 
 // Find the global object for export to both the browser and web workers.
@@ -910,4 +910,4 @@ b.keySize,b.ivSize);l.iv=d.iv;b=a.encrypt.call(this,b,c,d.key,l);b.mixIn(d);retu
 d[k>>>24]^e[n>>>16&255]^j[g>>>8&255]^l[h&255]^c[p++],n=d[n>>>24]^e[g>>>16&255]^j[h>>>8&255]^l[k&255]^c[p++],g=q,h=s,k=t;q=(f[g>>>24]<<24|f[h>>>16&255]<<16|f[k>>>8&255]<<8|f[n&255])^c[p++];s=(f[h>>>24]<<24|f[k>>>16&255]<<16|f[n>>>8&255]<<8|f[g&255])^c[p++];t=(f[k>>>24]<<24|f[n>>>16&255]<<16|f[g>>>8&255]<<8|f[h&255])^c[p++];n=(f[n>>>24]<<24|f[g>>>16&255]<<16|f[h>>>8&255]<<8|f[k&255])^c[p++];a[b]=q;a[b+1]=s;a[b+2]=t;a[b+3]=n},keySize:8});u.AES=p._createHelper(d)})();
 
 hljs.initHighlightingOnLoad();
-</script></head><body><a href="?delete=1"><button id="del-btn">DEL</button></a><pre id="container"><code id="paste">Decrypting&hellip;</code></pre><script>document.getElementById("paste").innerText=CryptoJS.AES.decrypt('<?php echo $paste ?>', window.location.href.split("#", 2)[1]).toString(CryptoJS.enc.Utf8);</script></body></html>
+</script></head><body><a href="?delete=1"><button id="rm-btn">rm</button></a><pre id="container"><code id="paste">LOLDECRYPTING&hellip;</code></pre><script>document.getElementById("paste").innerText=CryptoJS.AES.decrypt('<?php echo $paste ?>', window.location.href.split("#", 2)[1]).toString(CryptoJS.enc.Utf8);</script></body></html>
