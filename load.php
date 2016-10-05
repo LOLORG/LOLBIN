@@ -2,7 +2,7 @@
 
 define("SQL_SERVER", "127.0.0.1");
 define("SQL_DATABASE", "lolbin");
-define("SQL_USERNAME", "<root>");
+define("SQL_USERNAME", "<username>");
 define("SQL_PASSWORD", "<password>");
 
 if (!$_GET["delete"]) {
@@ -910,4 +910,4 @@ b.keySize,b.ivSize);l.iv=d.iv;b=a.encrypt.call(this,b,c,d.key,l);b.mixIn(d);retu
 d[k>>>24]^e[n>>>16&255]^j[g>>>8&255]^l[h&255]^c[p++],n=d[n>>>24]^e[g>>>16&255]^j[h>>>8&255]^l[k&255]^c[p++],g=q,h=s,k=t;q=(f[g>>>24]<<24|f[h>>>16&255]<<16|f[k>>>8&255]<<8|f[n&255])^c[p++];s=(f[h>>>24]<<24|f[k>>>16&255]<<16|f[n>>>8&255]<<8|f[g&255])^c[p++];t=(f[k>>>24]<<24|f[n>>>16&255]<<16|f[g>>>8&255]<<8|f[h&255])^c[p++];n=(f[n>>>24]<<24|f[g>>>16&255]<<16|f[h>>>8&255]<<8|f[k&255])^c[p++];a[b]=q;a[b+1]=s;a[b+2]=t;a[b+3]=n},keySize:8});u.AES=p._createHelper(d)})();
 
 hljs.initHighlightingOnLoad();
-</script></head><body><a href="."><button id="mk-btn">mkpaste</button></a><a href="?delete=1"><button id="rm-btn">rm</button></a><pre id="container"><code id="paste">LOLDECRYPTING&hellip;</code></pre><script>document.getElementById("paste").innerText=CryptoJS.AES.decrypt(<?php echo json_encode($paste) ?>, window.location.href.split("#", 2)[1]).toString(CryptoJS.enc.Utf8);</script></body></html>
+</script></head><body><a href="."><button id="mk-btn">mkpaste</button></a><a href="?delete=1"><button id="rm-btn">rm</button></a><pre id="container"><code id="paste">LOLDECRYPTING&hellip;</code></pre><script>var split=window.location.href.split("#", 2)[1].split("|");document.getElementById("paste").innerText=CryptoJS.AES.decrypt(<?php echo json_encode($paste) ?>, split[1], {iv: split[0]}).toString(CryptoJS.enc.Utf8);</script></body></html>
