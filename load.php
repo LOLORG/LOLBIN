@@ -2,8 +2,8 @@
 
 define("SQL_SERVER", "127.0.0.1");
 define("SQL_DATABASE", "lolbin");
-define("SQL_USERNAME", "<username>");
-define("SQL_PASSWORD", "<password>");
+define("SQL_USERNAME", "root");
+define("SQL_PASSWORD", "ZingoRingo00");
 
 if (!$_GET["delete"]) {
 	$paste = "";
