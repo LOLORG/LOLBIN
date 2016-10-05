@@ -4,7 +4,7 @@ THE BEST AND THE FASTEST PASTEBIN EVER! LOL!!!!!!!
 
 -------
 
-Aside from joking, LOLBIN is one of the fastest pastebins ever, it's configured to do every single sort of optimization to maximize the performance of the pastebin, achiving the maximum possible load times a website can ever do.
+Aside from joking, LOLBIN is one of the fastest pastebins ever, it's configured to do every single sort of optimization to maximize the performance of the pastebin, achiving the maximum possible load times a website can ever do. It's also completely encrypted on the server-side, meaning pastes can't be read by LOLBIN hosts
 
 The performance score is 100 as rated by Google's PageSpeed, all sorts of optimizations are done. A typical server response time should be around **125ms**
 

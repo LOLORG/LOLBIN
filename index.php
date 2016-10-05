@@ -17,23 +17,42 @@ if ($_POST["input"]) {
 		die();
 	} else {
 		try {
+			$key = bin2hex(openssl_random_pseudo_bytes(16));
+			$encrypted = cryptoJsAesEncrypt($key, $_POST["input"]);
+
 			$id = bin2hex(openssl_random_pseudo_bytes(5));
 			$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
 			$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$stmt = $conn->prepare("INSERT INTO pastes VALUES (:id, :paste, :token)");
 			$stmt->bindParam(":id", $id);
-			$stmt->bindParam(":paste", $_POST["input"]);
+			$stmt->bindParam(":paste", $encrypted);
 			$stmt->bindParam(":token", $_COOKIE["token"]);
 			$stmt->execute();
 
-			header("Location: p" . $id);
+			header("Location: p" . $id . '#' . $key);
 			die();
 		} catch (PDOException $e) {
 			echo '500!!!! WAAAAT!!!!!';
 			die();
 		}
 	}
+}
+
+// http://stackoverflow.com/questions/24337317/encrypt-with-php-decrypt-with-javascript-cryptojs
+function cryptoJsAesEncrypt($passphrase, $value){
+    $salt = openssl_random_pseudo_bytes(8);
+    $salted = '';
+    $dx = '';
+    while (strlen($salted) < 48) {
+        $dx = md5($dx.$passphrase.$salt, true);
+        $salted .= $dx;
+    }
+    $key = substr($salted, 0, 32);
+    $iv  = substr($salted, 32,16);
+    $encrypted_data = openssl_encrypt(json_encode($value), 'aes-256-cbc', $key, true, $iv);
+    $data = array("ct" => base64_encode($encrypted_data), "iv" => bin2hex($iv), "s" => bin2hex($salt));
+    return json_encode($data);
 }
 
 ?>
