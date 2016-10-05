@@ -29,7 +29,7 @@ if ($_POST["input"]) {
 			echo 'p' . $id;
 			die();
 		} catch (PDOException $e) {
-			echo '500!!!! WAAAAT!!!!!';
+			echo '500. wth .-.';
 			die();
 		}
 	}
@@ -37,7 +37,7 @@ if ($_POST["input"]) {
 
 ?>
 
-<!DOCTYPE html><html manifest="index.appcache"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/><meta name="language" content="EN"><meta name="keywords" content="code, codebase, snippet, snippets, codebottle, paste, pastebin, function, class, search"><title>LOLBIN</title><style>body{padding: 0 5%;color: white;background: #222;text-align: center;font-family: Consolas, monospace;}h1{font-size: 5em;}#input{min-height: 480px;width: 100%;text-align: left;padding: 16px;border-radius: 4px;resize: vertical;outline: none;box-sizing: border-box;}#paste-btn{padding: 12px 16px;background: #3F51B5;font-weight: 900;border: none;border-radius: 4px;color: white;}</style><script>function randomString(a){var c,b="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",d="";if(window.crypto&&window.crypto.getRandomValues){for(values=new Uint32Array(a),window.crypto.getRandomValues(values),c=0;c<a;c++)d+=b[values[c]%b.length];return d}for(c=0;c<a;c++)d+=b[Math.floor(Math.random()*b.length)];return d}/*
+<!DOCTYPE html><html manifest="index.appcache"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/><meta name="language" content="EN"><meta name="keywords" content="code, codebase, snippet, snippets, codebottle, paste, pastebin, function, class, search"><title>LOLBIN</title><style>body{padding: 0 5%;color: white;background: #222;text-align: center;font-family: Consolas, monospace;}h1{font-size: 5em;}#input{min-height: 480px;width: 100%;text-align: left;padding: 16px;border-radius: 1px;resize: vertical;outline: none;box-sizing: border-box;}#paste-btn{padding: 12px 16px;background: #009688;font-weight: 900;border: none;border-radius: 1px;color: white;}</style><script>function randomString(a){var c,b="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",d="";if(window.crypto&&window.crypto.getRandomValues){for(values=new Uint32Array(a),window.crypto.getRandomValues(values),c=0;c<a;c++)d+=b[values[c]%b.length];return d}for(c=0;c<a;c++)d+=b[Math.floor(Math.random()*b.length)];return d}/*
 CryptoJS v3.1.2
 code.google.com/p/crypto-js
 (c) 2009-2013 by Jeff Mott. All rights reserved.
