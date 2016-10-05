@@ -23,7 +23,7 @@ Login into your MySQL server and execute the following:
 ```
 CREATE DATABASE lolbin;
 USE lolbin;
-CREATE TABLE pastes (`id` varchar(8) NOT NULL PRIMARY KEY, `content` TEXT NOT NULL, `user_token` TINYTEXT);
+CREATE TABLE pastes (`id` varchar(10) NOT NULL PRIMARY KEY, `content` TEXT NOT NULL, `user_token` TINYTEXT);
 ```
 
 This creates a DB called `lolbin` and creates a `pastes` table.

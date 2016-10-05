@@ -28,4 +28,4 @@ ExpiresByType text/xml "access plus 1 year
 </FilesMatch>
 
 RewriteEngine On
-RewriteRule p([\w\d]{8})$ load.php?id=$1 [QSA]
+RewriteRule p([\w\d]{10})$ load.php?id=$1 [QSA]

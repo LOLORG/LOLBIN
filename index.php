@@ -3,7 +3,7 @@
 define("SQL_SERVER", "127.0.0.1");
 define("SQL_DATABASE", "lolbin");
 define("SQL_USERNAME", "<username>");
-define("SQL_PASSWORD", "</password>");
+define("SQL_PASSWORD", "<password>");
 
 if (!isset($_COOKIE["token"])) {
 	$token = sha1(time() + $_SERVER["REMOTE_ADDR"]);
@@ -17,7 +17,7 @@ if ($_POST["input"]) {
 		die();
 	} else {
 		try {
-			$id = bin2hex(openssl_random_pseudo_bytes(4));
+			$id = bin2hex(openssl_random_pseudo_bytes(5));
 			$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
 			$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
