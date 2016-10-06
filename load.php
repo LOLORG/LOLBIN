@@ -34,11 +34,11 @@ if (!$_GET["delete"]) {
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare("SELECT * FROM pastes WHERE id = :id AND user_token = :token");
 		$stmt->bindParam(":id", $_GET["id"]);
-		$stmt->bindParam(":token", $_COOKIE["token"]);
+		$stmt->bindParam(":token", $_COOKIE["loltoken"]);
 		$stmt->execute();
 		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		if (count($results) < 1) {
-			echo "#rekt";
+			echo "wat";
 			die();
 		}
 
@@ -47,9 +47,9 @@ if (!$_GET["delete"]) {
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare("DELETE FROM pastes WHERE id = :id AND user_token = :token");
 		$stmt->bindParam(":id", $_GET["id"]);
-		$stmt->bindParam(":token", $_COOKIE["token"]);
+		$stmt->bindParam(":token", $_COOKIE["loltoken"]);
 		$stmt->execute();
-		echo "no, sry";
+		echo "#rekt";
 		die();
 	} catch (PDOException $e) {
 		echo '500. wth .-.';

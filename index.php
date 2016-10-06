@@ -5,10 +5,10 @@ define("SQL_DATABASE", "lolbin");
 define("SQL_USERNAME", "<username>");
 define("SQL_PASSWORD", "<password>");
 
-if (!isset($_COOKIE["token"])) {
-	$token = sha1(time() + $_SERVER["REMOTE_ADDR"]);
-	setcookie("token", $token, time() + (3600 * 24 * 365 * 5));
-	$_COOKIE["token"] = $token;
+if (!isset($_COOKIE["loltoken"])) {
+	$token = bin2hex(openssl_random_pseudo_bytes(16));
+	setcookie("loltoken", $token, time() + (3600 * 24 * 365 * 5));
+	$_COOKIE["loltoken"] = $token;
 }
 
 if ($_POST["input"]) {
@@ -24,7 +24,7 @@ if ($_POST["input"]) {
 			$stmt = $conn->prepare("INSERT INTO pastes VALUES (:id, :paste, :token)");
 			$stmt->bindParam(":id", $id);
 			$stmt->bindParam(":paste", $_POST["input"]);
-			$stmt->bindParam(":token", $_COOKIE["token"]);
+			$stmt->bindParam(":token", $_COOKIE["loltoken"]);
 			$stmt->execute();
 			echo 'p' . $id;
 			die();
