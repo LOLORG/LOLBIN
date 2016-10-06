@@ -8,6 +8,10 @@ Aside from joking, LOLBIN is one of the fastest pastebins ever, it's configured 
 
 The performance score is 100 as rated by Google's PageSpeed, all sorts of optimizations are done. A typical server response time should be around **125ms**
 
+Pingdom test for one of our servers:
+
+[![Pingdom Test for Sigint](https://i.imgur.com/Zd774oM.png)](https://tools.pingdom.com/)
+
 # Installation:
 
 LOLBIN is built on the LAMP stack, and it pretty much requires it. Notable things your server should absolutely have is MySQL and PHP support
