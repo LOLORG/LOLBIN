@@ -80,4 +80,3 @@ Make sure `.htaccess` (Apache) or `nginx.conf` (Nginx) is active.
 # List of trusted LOLBINs (All of them are over HTTPS)
 
  - [Sigint](https://lolbin.sigint.pw/)
- - [Nolsen](https://lolbin.nolsen.xyz/)
