@@ -5,13 +5,13 @@ define("SQL_DATABASE", "lolbin");
 define("SQL_USERNAME", "<username>");
 define("SQL_PASSWORD", "<password>");
 
-if (!$_GET["delete"]) {
-	$paste = "";
+try {
+	$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
+	$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	try {
-		$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
-		$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	if (!$_GET["delete"]) {
+		$paste = "";
 		$stmt = $conn->prepare("SELECT * FROM pastes WHERE id = :id");
 		$stmt->bindParam(":id", $_GET["id"]);
 		$stmt->execute();
@@ -23,15 +23,7 @@ if (!$_GET["delete"]) {
 		} else {
 			$paste = $results[0]["content"];
 		}
-	} catch (PDOException $e) {
-		echo '500. wth .-.';
-		die();
-	}
-} else {
-	try {
-		$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
-		$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	} else {
 		$stmt = $conn->prepare("SELECT * FROM pastes WHERE id = :id AND user_token = :token");
 		$stmt->bindParam(":id", $_GET["id"]);
 		$stmt->bindParam(":token", $_COOKIE["loltoken"]);
@@ -51,10 +43,10 @@ if (!$_GET["delete"]) {
 		$stmt->execute();
 		echo "#rekt";
 		die();
-	} catch (PDOException $e) {
-		echo '500. wth .-.';
-		die();
 	}
+} catch (PDOException $e) {
+	echo '500. wth .-.';
+	die();
 }
 
 ?>
