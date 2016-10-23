@@ -50,6 +50,22 @@ This is the last step, you just need to configure the website, go through `index
 
 > Hooray! you're done!
 
+# API
+
+You can also use LOLBIN through any HTTP library, here's a python example:
+
+```
+response = requests.post("http://lolbin.sigint.pw/", {"raw": 0, "input": "LOLAPI"});
+url = "http://lolbin.sigint.pw/" + response.text;
+```
+
+Basically:
+
+ - You must set the `raw` parameter to 0 for this to work, so that the pastebin doesn't really try to decrypt the pasted text
+ - The index file, when pasting, returns the paste ID in the body, and then we just use it to construct the url
+ - `url` in that example contains the URL to view the paste
+ - You can also pass the `?raw=1` parameter to `url` so the pastebin only returns a raw response
+
 # Troubleshooting
 
 ### 500 Internal server error
