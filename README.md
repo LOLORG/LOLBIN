@@ -14,39 +14,24 @@ Pingdom test for one of our servers:
 
 # Installation:
 
-LOLBIN is built on the LAMP stack, and it pretty much requires it. Notable things your server should absolutely have is MySQL and PHP support
+Notable things your server should absolutely have is PHP support, with PDO's SQLite driver installed.
 
-Make sure to have `.htaccess` (Apache) or `nginx.conf` (Nginx) active, or the performance will degrade the LOLBIN won't work.
+Make sure to have `.htaccess` (Apache) or `nginx.conf` (Nginx) active, or the performance will degrade and the LOLBIN won't work.
 
 Installing LOLBIN has never been easier.
 
+
 ## Step 1
 
-Login into your MySQL server and execute the following:
-
-```
-CREATE DATABASE lolbin;
-USE lolbin;
-CREATE TABLE pastes (`id` varchar(10) NOT NULL PRIMARY KEY, `content` TEXT NOT NULL, `user_token` TINYTEXT);
-```
-
-This creates a DB called `lolbin` and creates a `pastes` table.
-
-
-## Step 2
-
-Now to actually install the website, go to your webserver's root folder and execute:
+Clone the repository and configure your webserver's root folder to the generated `./LOLBIN` folder
 
 ```
 git clone https://github.com/MicroDroid/LOLBIN
-mv ./LOLBIN/* .
 ```
 
-This will clone the repository to your webserver's root folder.
+## Step 2
 
-## Step 3
-
-This is the last step, you just need to configure the website, go through `index.php` and `load.php` files, in the first several lines of them, there are a set of `define` statements, simply configure those according to your MySQL server's location and credentials
+Make sure `nginx.conf` or `.htaccess` are active.
 
 > Hooray! you're done!
 
@@ -92,6 +77,24 @@ I haven't used nginx, so experiment with that on your own
 ### The website is slow and/or not working
 
 Make sure `.htaccess` (Apache) or `nginx.conf` (Nginx) is active.
+
+### PDO not finding SQLite driver
+
+If you're on debian-based systems:
+
+```
+sudo apt-get install php5-sqlite
+# or
+sudo apt-get install php7.0-sqlite
+```
+
+Uncomment this line in your `php.ini`:
+
+```
+...
+extension=php_pdo_sqlite.dll
+...
+```
 
 # List of trusted LOLBINs (All of them are over HTTPS)
 

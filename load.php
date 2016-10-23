@@ -1,12 +1,9 @@
 <?php
 
-define("SQL_SERVER", "127.0.0.1");
-define("SQL_DATABASE", "lolbin");
-define("SQL_USERNAME", "<username>");
-define("SQL_PASSWORD", "<password>");
+define("SQL_DATABASE", "lolbin.db");
 
 try {
-	$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
+	$conn = new PDO("sqlite:" . SQL_DATABASE);
 	$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -36,7 +33,7 @@ try {
 			die();
 		}
 
-		$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
+		$conn = new PDO("sqlite:" . SQL_DATABASE);
 		$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare("DELETE FROM pastes WHERE id = :id AND user_token = :token");
@@ -47,7 +44,7 @@ try {
 		die();
 	}
 } catch (PDOException $e) {
-	echo '500. wth .-.';
+	echo '500. wth .-.' . $e;
 	die();
 }
 

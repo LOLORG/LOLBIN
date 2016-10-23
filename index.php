@@ -1,9 +1,6 @@
 <?php
 
-define("SQL_SERVER", "127.0.0.1");
-define("SQL_DATABASE", "lolbin");
-define("SQL_USERNAME", "<username>");
-define("SQL_PASSWORD", "<password>");
+define("SQL_DATABASE", "lolbin.db");
 
 if (!isset($_COOKIE["loltoken"])) {
 	$token = bin2hex(openssl_random_pseudo_bytes(16));
@@ -19,7 +16,8 @@ if ($_POST["input"]) {
 		try {
 			$_POST["raw"] = empty($_POST["raw"]) ? 0 : 1;
 			$id = bin2hex(openssl_random_pseudo_bytes(5));
-			$conn = new PDO("mysql:host=".SQL_SERVER.";dbname=".SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD);
+
+			$conn = new PDO("sqlite:" . SQL_DATABASE);
 			$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$stmt = $conn->prepare("INSERT INTO pastes VALUES (:id, :paste, :token, :raw)");
@@ -31,7 +29,7 @@ if ($_POST["input"]) {
 			echo 'p' . $id;
 			die();
 		} catch (PDOException $e) {
-			echo '500. wth .-.';
+			echo '500. wth .-.' . $e;
 			die();
 		}
 	}
