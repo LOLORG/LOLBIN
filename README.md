@@ -1,4 +1,4 @@
-# LOLBIN [![Snippets Count](https://codebottle.io/api/v1/embed/searchbadge.php?keywords=%22LOLBIN%22&language=null)](https://codebottle.io/?q=%22LOLBIN%22)
+# LOLBIN [![Snippets Stats](https://codebottle.io/embed/search-badge?keywords=LOLBIN)](https://codebottle.io/?q=LOLBIN)
 
 THE BEST AND THE FASTEST PASTEBIN EVER! LOL!!!!!!!
 
