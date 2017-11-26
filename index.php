@@ -8,7 +8,7 @@ if (!isset($_COOKIE["loltoken"])) {
 	$_COOKIE["loltoken"] = $token;
 }
 
-if ($_POST["input"]) {
+if (isset($_POST["input"]) && $_POST["input"]) {
 	if (strlen($_POST["input"]) > 65535) {
 		echo "wat. that's huge";
 		die();
